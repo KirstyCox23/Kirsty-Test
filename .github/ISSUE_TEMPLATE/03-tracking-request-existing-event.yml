@@ -1,0 +1,109 @@
+name: '🛠 Request an UPDATE to existing behavioural tracking'
+description: Need an update making to some existing behavioural tracking? Complete all parts marked 'Section A' and add any details to 'Section B' if you can, we'll then prioritise and refine your request.
+assignees:
+  - DawnTomlinAnalytics
+type: "Task"
+projects: "HavenEngineering/128"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        Complete all parts in 'Section 🅰️' (look for the ➡️ icon) and add any details to 'Section 🅱️' if you can.
+
+        ## 🅰️ Insight Requirement
+
+  - type: textarea
+    id: insight_summary
+    attributes:
+      label: ➡️ Context and Requirements
+      description: Provide a summary of adjustment requirements, outlining what needs to change and why.
+      placeholder: e.g. Refactor the current implementation to split the existing "view fnb order confirmation" tracking into two separate dataLayer events
+    validations:
+      required: true
+
+  - type: textarea
+    id: links
+    attributes:
+      label: "➡️ Links"
+      description: "Provide links to the engineering ticket on the relevant squad's board and, where available, a link to final designs."
+      value: |
+        - Engineering ticket:
+        - Final designs:
+    validations:
+      required: false
+
+  - type: dropdown
+    id: expected_quarter
+    attributes:
+      label: ➡️ Expected Quarter
+      description: When is this expected to go live?
+      options:
+        - Q4 2025 (OCT, NOV, DEC)
+        - Q1 2026 (JAN, FEB, MAR)
+        - Q2 2026 (APR, MAY, JUN)
+        - Q3 2026 (JUL, AUG, SEP)
+      default: 1
+    validations:
+      required: true
+
+  - type: input
+    id: dependencies_blockers
+    attributes:
+      label: ➡️ Dependencies or Blockers
+      placeholder: e.g. Requires release of UI update planned for 2025-07-01
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        **NOTE**
+        **Thank you for completing 'Section 🅰️' you can stop here, but please add any details to 'Section 🅱️' if you can.**
+
+        ---
+        ### 🅱️ Event Specification
+        > **Event Guidelines**
+        > Rules For Variable Value Formats
+        > - Always use **lower case**, unless the value is an ID/code
+        > - Avoid special characters (e.g. "&") in values
+        > - Unless specified, values should not mirror UI labels directly
+
+  - type: textarea
+    id: event_updates
+    attributes:
+      label: 🅱️ Event Updates
+      description: Describe the event(s) to be updated, including trigger conditions and payload structure.
+      value:  |
+        - Event Name: "example name"
+        - Trigger(s): When a user has x, then trigger the event
+    validations:
+      required: false
+
+  - type: textarea
+    id: event_property_updates
+    attributes:
+      label: 🅱️ Event Property Updates
+      description: List changes to event property variables or value formats
+      value:  |
+        | Property         | Description                               | Value Format | Example Values            |
+        | ---------------- | ----------------------------------------- | ------------ | ------------------------- |
+        | property_name    | What this property tracks                 | string       | "example property value"  |
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✅ C. Checklist
+      options:
+        - label: Event update spec written
+        - label: Event changes in dev site
+        - label: Event QA completed in dev
+        - label: Check made to ensure event only firing when user consent provided
+        - label: Tool config completed
+        - label: Events updated in Amplitude data schema (categories and metadata)
+        - label: Events updated in marketing tools and charts
+        - label: Post-live QA completed
+        - label: Documentation updated

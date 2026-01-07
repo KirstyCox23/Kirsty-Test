@@ -1,0 +1,117 @@
+name: "🎯 Request additions or updates to tracking in Haven's marketing tools"
+description: Need enhancements to Google/ Meta/ other media tracking? Agency asked to implement a new pixel? Complete all of 'Section A', we'll then prioritise and refine your request.
+assignees:
+  - DawnTomlinAnalytics
+type: "task"
+projects: "HavenEngineering/128"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+
+        Complete all of section A. The Analytics team will complete the remaining sections.
+
+  - type: textarea
+    id: tag_requirements
+    attributes:
+      label: 🅰️ Tag Requirements
+      description: Brief description of the requirement and what it is for. Then outline what needs setting up or updating.
+        When setting up tracking events, it's crucial to align them with the site's goals — such as conversions or user behaviour.
+        Refer to the shared tracking doc for event consistency
+        👉 [Events used Across Marketing Channels](https://docs.google.com/document/d/1dWVBqOuGB6QpoWFKByHRWdJtcYGc53AmQUqJWrvCujM/edit?tab=t.0#bookmark=id.yjtmgmqopfgf)
+      placeholder: e.g. Add new Meta Pixel for tracking ad performance. Please add the relevant code snippets on the following events, start search, start checkout, complete booking.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: pod_checked
+    attributes:
+      label: ➡️ DPO Approval from Gemma Haines
+      description: Have you confirmed with **Gemma Haines (our DPO)** that this tag/pixel is approved to go live?
+        This includes ensuring she is comfortable with the type of data being shared with third parties.
+        **Requests will not be implemented without her approval.**
+      options:
+        - No - I still need to check with Gemma
+        - No - I'm waiting to hear back from Gemma
+        - Yes - Requirements approved by Gemma
+        - Yes - Existing tag with approval
+        - Not required
+    validations:
+      required: true
+
+  - type: textarea
+    id: cookie_details
+    attributes:
+      label: ➡️ Cookie & Data Collection Details
+      description: Describe the cookies or tracking involved and link to any documentation on data collected.
+      placeholder:
+    validations:
+      required: true
+
+  - type: textarea
+    id: tag_code
+    attributes:
+      label: ➡️ Tag Code Snippet
+      description: Paste or link to the code needed for the setup.
+      placeholder: e.g. <script>...</script>
+    validations:
+      required: true
+
+  - type: input
+    id: documentation_links
+    attributes:
+      label: ➡️ Tag Documentation
+      description: Provide links to any official documentation or implementation guides.
+      placeholder: e.g. https://developers.facebook.com/docs/meta-pixel
+    validations:
+      required: true
+
+  - type: dropdown
+    id: expected_quarter
+    attributes:
+      label: ➡️ Expected Quarter
+      description: When is this expected to go live?
+      options:
+        - Q4 2025 (OCT, NOV, DEC)
+        - Q1 2026 (JAN, FEB, MAR)
+        - Q2 2026 (APR, MAY, JUN)
+        - Q3 2026 (JUL, AUG, SEP)
+      default: 1
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+
+        > [!NOTE]
+        > **Thank you!** The Analytics team will now take over and complete the remaining steps.
+
+        ---
+  - type: textarea
+    id: fix_details
+    attributes:
+      label: 🅱️ Implementation Plan (Analytics Team)
+      description: Internal use — the Analytics team will fill this out with setup notes and staging info.
+      placeholder: For internal use only.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Acceptance Criteria
+      options:
+        - label: Tagging requirements captured and documented
+        - label: Approval to add tag confirmed by Gemma Haines
+        - label: GTM workspace created for testing
+        - label: Test deployment verified
+        - label: Checks made to ensure user consent choices adhered to
+        - label: Post-live QA completed

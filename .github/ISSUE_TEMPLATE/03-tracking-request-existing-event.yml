@@ -22,7 +22,7 @@ body:
       placeholder: e.g. Refactor the current implementation to split the existing "view fnb order confirmation" tracking into two separate dataLayer events
     validations:
       required: true
-
+  
   - type: textarea
     id: links
     attributes:
@@ -33,7 +33,7 @@ body:
         - Final designs:
     validations:
       required: false
-
+      
   - type: dropdown
     id: expected_quarter
     attributes:
@@ -47,7 +47,7 @@ body:
       default: 1
     validations:
       required: true
-
+      
   - type: input
     id: dependencies_blockers
     attributes:
@@ -60,15 +60,15 @@ body:
     attributes:
       value: |
         **NOTE**
-        **Thank you for completing 'Section 🅰️' you can stop here, but please add any details to 'Section 🅱️' if you can.**
-
+        **Thank you for completing 'Section 🅰️' you can stop here, but please add any details to 'Section 🅱️' if you can.** 
+        
         ---
         ### 🅱️ Event Specification
         > **Event Guidelines**
-        > Rules For Variable Value Formats
-        > - Always use **lower case**, unless the value is an ID/code
-        > - Avoid special characters (e.g. "&") in values
-        > - Unless specified, values should not mirror UI labels directly
+        > Rules For Variable Value Formats 
+        > - Always use **lower case**, unless the value is an ID/code  
+        > - Avoid special characters (e.g. "&") in values  
+        > - Unless specified, values should not mirror UI labels directly  
 
   - type: textarea
     id: event_updates
@@ -76,7 +76,7 @@ body:
       label: 🅱️ Event Updates
       description: Describe the event(s) to be updated, including trigger conditions and payload structure.
       value:  |
-        - Event Name: "example name"
+        - Event Name: "example name"  
         - Trigger(s): When a user has x, then trigger the event
     validations:
       required: false
@@ -92,7 +92,7 @@ body:
         | property_name    | What this property tracks                 | string       | "example property value"  |
     validations:
       required: false
-
+    
   - type: checkboxes
     id: acceptance_criteria
     attributes:

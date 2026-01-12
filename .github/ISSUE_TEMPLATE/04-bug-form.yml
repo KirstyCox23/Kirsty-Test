@@ -1,0 +1,107 @@
+name: '🐞 Report a BUG'
+description: Something looking odd? Let us know!
+labels: ["CLM"]
+assignees:
+  - KirstyCox23
+type: "bug"
+projects: "HavenEngineering/180"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        > [!IMPORTANT]
+        > **Please direct any platform issues to Bloomreach first. This form is for data specific bugs.**
+
+        ## 🅰️ Bug Details
+
+  - type: input
+    id: issue_summary
+    attributes:
+      label: ➡️ Issue Summary
+      description: Brief description of the issue.
+      placeholder: e.g. Missing event on product page view
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior
+    attributes:
+      label: ➡️ Current Behaviour
+      description: Describe what's happening. Please include specific events or properties affected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: ➡️ Screenshots or Attachments
+      description: Drag and drop images here, or paste screenshots to help illustrate the issue.
+      placeholder: Drag and drop screenshots here...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: ➡️ Impact
+      description: How is this issue affecting you?
+      options:
+        - I can't do anything until this is fixed
+        - I can continue for now but needs fixing asap
+        - Needs fixing but no major impact
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+
+        > [!NOTE]
+        > **Thank you, this ticket will be reviewed and a refinement session will be scheduled if needed.**
+
+        ---
+
+        ## 🅱️ Investigation (CRM Team)
+
+  - type: textarea
+    id: fix_details
+    attributes:
+      label: 🅱️ Investigation & Fix Details
+      description: CRM team to investigate and outline required fix below.
+      value: |
+        ### Root Cause
+        _To be completed_
+
+        ### Fix Required
+        _To be completed_
+
+        ### Affected Systems
+        - [ ] Amplitude
+        - [ ] Bloomreach
+        - [ ] GTM / dataLayer
+        - [ ] Other:
+    validations:
+      required: false
+
+  - type: textarea
+    id: release_note
+    attributes:
+      label: 📝 Release Note
+      description: "Write a user-friendly description for the release notes. This will appear on the Performance Marketing Hub when the ticket is completed."
+      placeholder: "e.g. Fixed issue where product_viewed event was not firing on variant pages - funnel reporting now accurate."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Checklist
+      description: To be completed by the CRM team.
+      options:
+        - label: Issue investigated - root cause identified
+        - label: Bug confirmed and reproduced
+        - label: Fix implemented
+        - label: Post-fix QA completed
+        - label: Stakeholder notified

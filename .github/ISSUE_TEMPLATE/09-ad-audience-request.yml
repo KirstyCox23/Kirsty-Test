@@ -1,0 +1,156 @@
+name: '📣 Request a NEW ad audience'
+description: Need a new advertising audience for your campaign? Complete this form and we'll review your request.
+labels: ["performance_Marketing"]
+assignees:
+  - KirstyCox23
+type: "task"
+projects: "HavenEngineering/180"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🅰️ Audience Request Details
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: ➡️ Platform
+      description: Which advertising platform is this audience for?
+      options:
+        - Facebook / Meta
+        - Google
+        - TikTok
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience_type
+    attributes:
+      label: ➡️ Audience Type
+      description: What type of audience do you need?
+      options:
+        - Lookalike audience
+        - Retargeting audience
+        - Custom audience (specific criteria)
+        - Suppression list
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: customer_segment
+    attributes:
+      label: ➡️ Target Customer Segment
+      description: Which customers should be included?
+      options:
+        - Holidaymakers (Guests)
+        - Owners
+        - Prospects (Caravan Sales)
+        - Lapsed customers
+        - High value customers
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: textarea
+    id: audience_criteria
+    attributes:
+      label: ➡️ Audience Criteria
+      description: Describe the specific criteria or rules for this audience.
+      placeholder: |
+        e.g.
+        - Customers who booked in the last 12 months
+        - Visited site but didn't complete booking
+        - Owners who haven't renewed
+    validations:
+      required: true
+
+  - type: textarea
+    id: campaign_details
+    attributes:
+      label: ➡️ Campaign Details
+      description: What campaign will this audience be used for?
+      placeholder: |
+        e.g.
+        - Campaign name: Summer 2026 Early Bird
+        - Objective: Drive bookings for Q2
+        - Agency: MediaCom
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: ➡️ When do you need this by?
+      description: Provide the date you need the audience ready.
+      placeholder: e.g. 2026-02-15
+    validations:
+      required: true
+
+  - type: input
+    id: stakeholder
+    attributes:
+      label: ➡️ Key Stakeholder
+      description: Who is the main contact for this request?
+      placeholder: e.g. Sarah Smith - Media Manager
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+
+        > [!NOTE]
+        > **Thank you, this ticket will be reviewed and a refinement session will be scheduled if needed.**
+
+        ---
+
+        ## 🅱️ Technical Details (CRM Team)
+
+  - type: textarea
+    id: audience_specification
+    attributes:
+      label: 🅱️ Audience Specification
+      description: Technical details to be completed by the CRM team.
+      value: |
+        ### Audience Name
+        `audience_name_here`
+
+        ### Source
+        - [ ] Bloomreach segment
+        - [ ] Snowflake query
+        - [ ] Other:
+
+        ### Estimated Size
+        _To be completed_
+
+        ### Refresh Frequency
+        - [ ] One-off
+        - [ ] Daily
+        - [ ] Weekly
+    validations:
+      required: false
+
+  - type: textarea
+    id: release_note
+    attributes:
+      label: 📝 Release Note
+      description: "Write a user-friendly description for the release notes. This will appear on the Performance Marketing Hub when the ticket is completed."
+      placeholder: "e.g. New Facebook lookalike audience created for Summer 2026 campaign - based on high-value bookers from last 12 months."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Checklist
+      description: To be completed by the CRM team.
+      options:
+        - label: Audience criteria confirmed
+        - label: Data source identified
+        - label: Audience built and tested
+        - label: Uploaded to platform
+        - label: Stakeholder notified - ready for use

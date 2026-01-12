@@ -1,0 +1,171 @@
+name: '📥 Request an ad-hoc event load'
+description: Need a one-off data load into Bloomreach for a campaign, promotion, or special initiative? Complete this form and we'll review your request.
+labels: ["CLM"]
+assignees:
+  - KirstyCox23
+type: "task"
+projects: "HavenEngineering/180"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🅰️ Ad-hoc Event Details
+
+  - type: textarea
+    id: event_summary
+    attributes:
+      label: ➡️ What is this ad-hoc event for?
+      description: Describe the campaign, promotion, or initiative that requires this one-off data load.
+      placeholder: |
+        e.g. PhotoBox shopping centre promotion - we collected leads at 5 shopping centres
+        and need to load them into Bloomreach to send a follow-up email campaign.
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_description
+    attributes:
+      label: ➡️ What data do you need to load?
+      description: Describe the data fields and what they contain.
+      placeholder: |
+        e.g.
+        - Email address
+        - First name
+        - Park interest
+        - Promotion code
+        - Date collected
+    validations:
+      required: true
+
+  - type: input
+    id: record_count
+    attributes:
+      label: ➡️ Approximate number of records
+      description: How many rows/customers are in this data load?
+      placeholder: e.g. 500 records, 2,000 leads
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data_format
+    attributes:
+      label: ➡️ Data format
+      description: How will the data be provided?
+      options:
+        - CSV file
+        - Excel file
+    validations:
+      required: true
+
+  - type: input
+    id: data_provider
+    attributes:
+      label: ➡️ Who will be providing the file?
+      description: Name and contact of the person providing the data file.
+      placeholder: e.g. John Smith - Marketing Team
+    validations:
+      required: false
+
+  - type: input
+    id: data_supply_date
+    attributes:
+      label: ➡️ When will this data be supplied?
+      description: Provide the date the data file will be ready and sent to the team.
+      placeholder: e.g. 2026-02-10, or "already available"
+    validations:
+      required: false
+
+  - type: input
+    id: campaign_date
+    attributes:
+      label: ➡️ When do you need this loaded by?
+      description: Provide the date you need the data available in Bloomreach.
+      placeholder: e.g. 2026-02-15, or "before Monday 10th"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: consent_status
+    attributes:
+      label: ➡️ Consent status
+      description: Do these customers have marketing consent?
+      options:
+        - Yes - all records have opted in to marketing
+        - Partial - some have consent, flagged in data
+        - Service comms only - no marketing consent
+        - Not sure - needs review
+    validations:
+      required: true
+
+  - type: input
+    id: stakeholder
+    attributes:
+      label: ➡️ Key Stakeholder
+      description: Who is the main business owner for this request?
+      placeholder: e.g. Sarah Smith - CRM Manager
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+
+        > [!NOTE]
+        > **Thank you, this ticket will be reviewed and a refinement session will be scheduled if needed.**
+
+        ---
+
+        ## 🅱️ Technical Details (CRM Team)
+
+  - type: textarea
+    id: load_specification
+    attributes:
+      label: 🅱️ Load Specification
+      description: Technical details to be completed by the CRM/Analytics team.
+      value: |
+        ### Event Name
+        `adhoc_example_event`
+
+        ### Data Mapping
+        | Source Column | Bloomreach Field | Type | Notes |
+        |---------------|------------------|------|-------|
+        | email | email | string | Primary identifier |
+        | | | | |
+
+        ### Load Method
+        - [ ] Manual import
+        - [ ] Scheduled import
+        - [ ] API load
+
+        ### Validation Notes
+        - Record count matches:
+        - Duplicates handled:
+        - Consent flags applied:
+    validations:
+      required: false
+
+  - type: textarea
+    id: release_note
+    attributes:
+      label: 📝 Release Note
+      description: "Write a user-friendly description for the release notes. This will appear on the Performance Marketing Hub when the ticket is completed."
+      placeholder: "e.g. Ad-hoc data load completed for PhotoBox shopping centre promotion - 2,500 leads now available for campaign targeting."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Checklist
+      description: To be completed by the CRM/Analytics team.
+      options:
+        - label: Data file received and reviewed
+        - label: Data format validated
+        - label: Consent status confirmed
+        - label: Load specification written
+        - label: Test load completed in staging
+        - label: Production load completed
+        - label: Record count verified
+        - label: Stakeholder notified - ready for campaign

@@ -1,0 +1,194 @@
+name: '📊 Request a NEW Bloomreach event or customer attribute'
+description: Need a new event, customer attribute, or preference added to Bloomreach? Complete 'Section A' and we'll prioritise and refine your request.
+labels: ["CLM"]
+assignees:
+  - KirstyCox23
+type: "task"
+projects: "HavenEngineering/180"
+
+body:
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🅰️ Business Requirement
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: ➡️ Request Type
+      description: What type of Bloomreach addition do you need?
+      options:
+        - New Event (e.g. purchase, activity, survey response)
+        - New Customer Attribute (e.g. postcode, drivetime, flag)
+        - New Customer Preference (e.g. communication preferences)
+        - Update to Existing Event/Attribute
+    validations:
+      required: true
+
+  - type: dropdown
+    id: customer_type
+    attributes:
+      label: ➡️ Customer Type
+      description: Which customer segment does this apply to?
+      options:
+        - Holidaymakers (Guests)
+        - Owners
+        - Prospects (Caravan Sales)
+        - All customers
+        - Other (specify in Business case / Use case)
+    validations:
+      required: true
+
+  - type: textarea
+    id: business_case
+    attributes:
+      label: ➡️ Business case / Use case
+      description: Describe what you need and why. How will this data be used in Bloomreach?
+      placeholder: |
+        e.g. We need to track when Owners complete the drain down form so we can:
+        - Send reminder comms to those who haven't completed it
+        - Confirm receipt to those who have
+        - Report on completion rates by park
+
+        Use cases:
+        - Trigger automated reminder email 7 days before deadline
+        - Segment for "completed" vs "not completed" for targeted messaging
+        - Personalise on-park arrival comms based on drain down status
+    validations:
+      required: true
+
+  - type: input
+    id: data_source
+    attributes:
+      label: ➡️ Where does this data currently live? (if known)
+      description: e.g. Seaware, PLOT, FreshSales, Snowflake, Amplitude, Haven.com, Owners Hub, Mobile App, or external system
+      placeholder: e.g. Snowflake - table_name, or NPS survey data from Medallia
+    validations:
+      required: false
+
+  - type: textarea
+    id: sample_data
+    attributes:
+      label: ➡️ Sample Data / Expected Values
+      description: Provide examples of what the data looks like or expected values.
+      placeholder: |
+        e.g. For a "drain_down_status" attribute:
+        - Values: "completed", "pending", "not_required"
+        - Date field: "2025-10-15" (completion date)
+
+        Or for an event:
+        - Event name: "drain_down_form_submitted"
+        - Properties: park_code, submission_date, drain_down_type
+    validations:
+      required: false
+
+  - type: dropdown
+    id: expected_quarter
+    attributes:
+      label: ➡️ Expected Quarter
+      description: When do you need this available in Bloomreach?
+      options:
+        - Q1 2026 (JAN, FEB, MAR)
+        - Q2 2026 (APR, MAY, JUN)
+        - Q3 2026 (JUL, AUG, SEP)
+      default: 1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: ➡️ Priority
+      description: How urgent is this request?
+      options:
+        - P1-blocker (Campaign cannot launch without this)
+        - P2-high (Needed for upcoming campaign/initiative)
+        - P3-medium (Would improve current capabilities)
+        - P4-low (Nice-to-have for future use)
+      default: 2
+    validations:
+      required: true
+
+  - type: input
+    id: stakeholder
+    attributes:
+      label: ➡️ Key Stakeholder
+      description: Who is the main business owner for this request?
+      placeholder: e.g. Sarah Smith - CRM Manager
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+
+        > [!NOTE]
+        > **Thank you, this ticket will be reviewed and a refinement session will be scheduled if needed.**
+
+        ---
+
+        ## 🅱️ Technical Specification
+
+  - type: textarea
+    id: event_specification
+    attributes:
+      label: 🅱️ Event/Attribute Specification
+      description: Technical details to be completed by the CRM/Analytics team.
+      value: |
+        ### Event/Attribute Name
+        `example_event_name` or `example_attribute`
+
+        ### Data Type
+        Event / Customer Property / Aggregate / Catalogue
+
+        ### Schema
+        | Field | Type | Description | Example |
+        |-------|------|-------------|---------|
+        | field_name | string | Description | "example" |
+
+        ### Source Query/Logic
+        ```sql
+        -- Add source query or transformation logic
+        ```
+
+        ### Mapping Notes
+        - Bloomreach field:
+        - Source field:
+        - Transformation:
+    validations:
+      required: false
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: 🅱️ Implementation Notes
+      description: Any additional technical notes, dependencies, or considerations.
+      placeholder: e.g. Requires new Snowflake view, depends on XYZ pipeline
+    validations:
+      required: false
+
+  - type: textarea
+    id: release_note
+    attributes:
+      label: 📝 Release Note
+      description: "Write a user-friendly description for the release notes. This will appear on the Performance Marketing Hub when the ticket is completed."
+      placeholder: "e.g. New 'drain_down_status' attribute now available for Owners - use this to target comms based on winter preparation completion."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: ✅ Checklist
+      description: To be completed by the CRM/Analytics team.
+      options:
+        - label: Data source confirmed and accessible
+        - label: Technical specification written
+        - label: Data pipeline/import configured
+        - label: Event/attribute created in Bloomreach
+        - label: Test data validated in staging
+        - label: Production deployment completed
+        - label: Post-live QA - data appearing correctly
+        - label: Documentation updated (Bloomreach data dictionary)
+        - label: Stakeholder notified and demo provided
